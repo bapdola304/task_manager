@@ -1,9 +1,8 @@
  <tbody id="addsearch">
                             <tr>
                                 <td></td>
-                                <td>
-                                    <input type="text" class="form-control" />
-                                </td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                	<select class="form-control" id="state">
 				<option value="-1" <%= state === '-1' ? 'selected' : '' %>>Tất Cả</option>
@@ -24,9 +23,9 @@
                                     
                                     <% if(item.state === '1'){
                                     %>
-                                    <span class="label label-success">Kích Hoạt</span>
+                                    <span class="label label-success">Active</span>
                                     <% }else{ %>
-                                    <span class="label label-danger">Ẩn</span>
+                                    <span class="label label-danger">Inactive</span>
                                     <% } %>
                                 </span>
                             </td>
@@ -68,7 +67,7 @@
                                                 
                                             </select>
                                         </div>
-                                    <button class="btn btn-primary ml-3">Sửa</button></form>
+                                    <button class="btn btn-primary ml-3">Edit</button></form>
                                 </div>
                             </div>
                             
