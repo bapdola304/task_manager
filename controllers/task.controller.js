@@ -1,12 +1,14 @@
 
 const task = require('../models/task.model');
-
+var dateFormat = require('dateformat');
 
 module.exports.addTask = async (req, res) =>{
 	console.log(req.body);
+	// req.body.date = dateFormat(req.body.date, "dddd, mmmm dS, yyyy");
 	let task1 = new task(req.body);
 	task1.save();
 	res.redirect('/');
+	// console.log(req.body);
 }
 module.exports.delete = async (req, res) =>{
 		let id = req.params.id;
@@ -42,7 +44,7 @@ module.exports.state = async (req, res) =>{
 
 	let tasks = await task.find();
 	if(data === '-1'){
-		 res.render('resultState',{ tasks : tasks });
+		 res.render('resultState',{ tasks : tasks,state : data });
 		 return;
 	}
 	let tasksState = tasks.filter(task =>{

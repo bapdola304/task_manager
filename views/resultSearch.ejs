@@ -1,4 +1,4 @@
-<tbody id="addsearch">
+ <tbody id="addsearch">
                             <tr>
                                 <td></td>
                                 <td>
@@ -19,6 +19,7 @@
                                 
                                 <td><%= index %></td>
                                 <td><%= item.name %></td>
+                                <td><%= item.date %></td>
                                 <td class="text-center">
                                     
                                     <% if(item.state === '1'){
@@ -77,3 +78,17 @@
                     <% }) %>
                     
                 </tbody>
+
+<script>
+ $(document).ready(function(){
+       $("#state").change(()=>{
+        var data = $("#state").val();
+        console.log(data);
+        $.post('/task/state',{data : data},function(data){
+              $('#addsearch').replaceWith(data); 
+        });
+    })
+   
+ })
+
+</script>
